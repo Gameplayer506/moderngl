@@ -7,25 +7,27 @@ from light import Light
 
 class GraphicsEngine:
     def __init__(self, win_size=(1280, 720)):
-        #set up pygame 
+        #set up pygame
         pg.init()
         self.WIN_SIZE = win_size
+        #openGL attributes
         pg.display.gl_set_attribute(pg.GL_CONTEXT_MAJOR_VERSION, 3)
         pg.display.gl_set_attribute(pg.GL_CONTEXT_MINOR_VERSION, 3)
         pg.display.gl_set_attribute(pg.GL_CONTEXT_PROFILE_MASK  , pg.GL_CONTEXT_PROFILE_CORE)
+        #opengl context
         pg.display.set_mode(self.WIN_SIZE, flags=pg.OPENGL | pg.DOUBLEBUF)
         self.ctx = mgl.create_context()
+        #mouse settings
         pg.event.set_grab(True)
         pg.mouse.set_visible(False)
-
         #view internal walls with self.ctx.front_face = "cw"
-
         self.ctx.enable(flags=mgl.DEPTH_TEST | mgl.CULL_FACE)
+        #tracking time
         self.clock = pg.time.Clock()
         self.time = 0
         self.delta_time = 0
 
-        #bring in from imports
+        #create instances
         self.light = Light()
         self.camera = Camera(self)
         self.scene = Cube(self)

@@ -11,17 +11,13 @@ class Camera:
         self.app = app
         self.aspect_ratio = app.WIN_SIZE[0] / app.WIN_SIZE[1]
         self.position = glm.vec3(position)
-
         self.up = glm.vec3(0, 1, 0)
         self.right = glm.vec3(1, 0, 0)
         self.up = glm.vec3(0, 1, 0)
         self.forward = glm.vec3(0, 0, -1)
-
         self.yaw = yaw
         self.pitch = pitch
-
         self.m_view = self.get_view_matrix()
-
         self.m_proj = self.get_projection_matrix()
 
     def rotate(self):
