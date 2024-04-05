@@ -5,6 +5,7 @@ from model import *
 from camera import Camera
 from light import Light
 from mesh import Mesh
+from scene import Scene
 
 class GraphicsEngine:
     def __init__(self, win_size=(1280, 720)):
@@ -32,7 +33,7 @@ class GraphicsEngine:
         self.light = Light()
         self.camera = Camera(self)
         self.mesh = Mesh(self)
-        self.scene = Cube(self)
+        self.scene = Scene(self)
 
     def check_events(self):
         #check for closing window or esc pressed
@@ -56,7 +57,6 @@ class GraphicsEngine:
             self.get_time()
             self.check_events()
             self.camera.update()
-            self.scene.update()
             self.render()
             self.delta_time = self.clock.tick(60)
 
