@@ -60,6 +60,8 @@ class Camera:
         if keys[pg.K_e]:
             self.position -= self.up * velocity
 
+        #print(self.position, self.m_proj, self.m_view)
+
 
     def get_view_matrix(self):
         return glm.lookAt(self.position, self.position + self.forward, self.up)

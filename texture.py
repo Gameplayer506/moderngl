@@ -1,6 +1,7 @@
 import pygame as pg
 import moderngl as mgl
 
+
 class Texture:
     def __init__(self, ctx):
         self.ctx = ctx

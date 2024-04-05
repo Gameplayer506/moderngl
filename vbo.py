@@ -1,6 +1,7 @@
 import numpy as np
 import moderngl as mgl
 
+
 class VBO:
     def __init__(self, ctx):
         self.vbos = {}
@@ -8,8 +9,6 @@ class VBO:
     
     def destroy(self):
         [vbo.destroy() for vbo in self.vbos.values()]
-
-
 
 
 class BaseVBO:
